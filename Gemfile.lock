@@ -1547,7 +1547,11 @@ DEPENDENCIES
   rails (~> 6.1)
   rails-erd
   rspec-rails
+  rubocop
   rubocop-airbnb
+  rubocop-performance
+  rubocop-rails
+  rubocop-rspec
   sass-rails (~> 6.0)
   solidus (~> 2.11.0)
   solidus_auth_devise
