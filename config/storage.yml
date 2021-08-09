@@ -12,8 +12,13 @@ amazon:
   service: S3
   access_key_id: ""
   secret_access_key: ""
+<<<<<<< HEAD
+
+
+=======
   region: ap-northeast-1
   bucket: potepanec0927
+>>>>>>> dd16bd55e9ce31620b0ba284eb4abe1c62b86012
 
 
 # amazon:
