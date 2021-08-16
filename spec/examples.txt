@@ -1,0 +1,9 @@
+example_id                                                 | status  | run_time        |
+---------------------------------------------------------- | ------- | --------------- |
+./spec/models/spree/product_spec.rb[1:1]                   | pending | 0.00003 seconds |
+./spec/requests/potepan/products_spec.rb[1:1:1]            | passed  | 32.6 seconds    |
+./spec/requests/potepan/products_spec.rb[1:2:1]            | failed  | 0.04406 seconds |
+./spec/requests/spree/product_spec.rb[1:1:1]               | pending | 0.00003 seconds |
+./spec/views/potepan/products/create.html.erb_spec.rb[1:1] | pending | 0.00002 seconds |
+./spec/views/potepan/products/index.html.erb_spec.rb[1:1]  | pending | 0.00007 seconds |
+./spec/views/potepan/products/show.html.erb_spec.rb[1:1]   | pending | 0.00003 seconds |
