@@ -150,3 +150,7 @@ gem 'sqlite3', group: :development
 
 # 本番環境(heroku)ではPostgreSQLを使用
 gem 'pg', group: :production
+
+group :test do
+  gem 'capybara'
+end
