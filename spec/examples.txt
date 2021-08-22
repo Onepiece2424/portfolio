@@ -1,7 +1,9 @@
-example_id                                                | status  | run_time        |
---------------------------------------------------------- | ------- | --------------- |
-./spec/models/spree/product_spec.rb[1:1]                  | pending | 0.00002 seconds |
-./spec/requests/potepan/products_spec.rb[1:1:1]           | passed  | 11.19 seconds   |
-./spec/requests/spree/product_spec.rb[1:1:1]              | pending | 0.00002 seconds |
-./spec/views/potepan/products/index.html.erb_spec.rb[1:1] | passed  | 0.04673 seconds |
-./spec/views/potepan/products/show.html.erb_spec.rb[1:1]  | pending | 0.00005 seconds |
+example_id                                                | status | run_time        |
+--------------------------------------------------------- | ------ | --------------- |
+./spec/models/spree/product_spec.rb[1:1]                  | passed | 0.00885 seconds |
+./spec/models/spree/product_spec.rb[1:2]                  | passed | 0.00373 seconds |
+./spec/requests/potepan/products_spec.rb[1:1:1]           | passed | 0.19692 seconds |
+./spec/requests/product_spec.rb[1:1:1]                    | passed | 0.0056 seconds  |
+./spec/requests/spree/product_spec.rb[1:1]                | passed | 0.00625 seconds |
+./spec/views/potepan/products/index.html.erb_spec.rb[1:1] | passed | 10.83 seconds   |
+./spec/views/potepan/products/show.html.erb_spec.rb[1:1]  | passed | 0.04484 seconds |
