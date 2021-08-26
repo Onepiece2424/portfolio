@@ -66,10 +66,6 @@
 # gem "aws-sdk", "~> 3.0"
 # gem "aws-sdk-s3", require: false
 
-
-
-
-
 source 'https://rubygems.org'
 
 ruby '~> 2.7.3'
@@ -122,8 +118,6 @@ group :development, :test do
   gem 'rails-erd'
   gem 'annotate'
   gem 'rubocop-airbnb'
-
-
 end
 
 group :development do
