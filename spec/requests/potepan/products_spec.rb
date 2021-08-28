@@ -7,12 +7,4 @@ RSpec.describe "Potepan::Products", type: :request do
       expect(response).to have_http_status(:success)
     end
   end
-
-  # describe "GET /create" do
-  #   it "returns http success" do
-  #     get "/potepan/products/create"
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
-
 end
