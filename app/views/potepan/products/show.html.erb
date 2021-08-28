@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     <!-- SITE TITTLE -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Single Product - BIGBAG Store</title>
-
+    <title>
+     <% content_for :title do %>
+      <%= @product.name %>
+     <% end %>
+    </title>
     <!-- PLUGINS CSS STYLE -->
 
     <!-- GOOGLE FONT -->
