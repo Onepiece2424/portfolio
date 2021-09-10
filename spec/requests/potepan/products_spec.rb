@@ -1,15 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe "Spree::Products", type: :request do
-  describe "GET /index" do
-    before do
-      get "/potepan/index"
+  let!(:product) { create(:product) }
+
+  before do
+    get "/products/#{product.id}"
+  end
+
+  describe 'showページの表示' do
+    it 'リクエスト200が返ってくるかどうか確認' do
+      # リクエスト成功を表す200が返ってきたか確認する。
+      expect(response.status).to eq(200)
     end
-    it "returns http success" do
-      expect(response).to have_http_status(:success)
+    it '商品名が表示されること' do
+      expect(response.body). to include product.name
     end
-    it "returns a 200 response" do
-      expect(response).to have_http_status "200"
+    it '商品画像が取得できること' do
+      product.images.each do |display_image|
+        expect(response.body). to eq display_image.attachment(:product)
+      end
     end
   end
 end
