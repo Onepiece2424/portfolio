@@ -33,7 +33,6 @@ Spree.config do |config|
   config.image_attachment_module = 'Spree::Image::PaperclipAttachment'
   config.taxon_attachment_module = 'Spree::Taxon::PaperclipAttachment'
 
-
   # Disable legacy Solidus custom CanCanCan actions aliases
   config.use_custom_cancancan_actions = false
 
