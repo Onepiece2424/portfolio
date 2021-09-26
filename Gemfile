@@ -149,3 +149,7 @@ gem 'pg', group: :production
 group :test do
   gem 'capybara'
 end
+
+gem 'mini_magick'
+gem 'image_processing'
+gem 'mini_racer'

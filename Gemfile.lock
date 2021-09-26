@@ -1258,6 +1258,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
+    libv8-node (15.14.0.1)
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -1277,6 +1278,8 @@ GEM
     mini_magick (4.11.0)
     mini_mime (1.0.3)
     mini_portile2 (2.5.1)
+    mini_racer (0.4.0)
+      libv8-node (~> 15.14.0.0)
     minitest (5.14.4)
     monetize (1.11.0)
       money (~> 6.12)
@@ -1550,8 +1553,11 @@ DEPENDENCIES
   byebug
   capybara
   factory_bot_rails
+  image_processing
   jbuilder (~> 2.11)
   listen (>= 3.0.5, < 4.0)
+  mini_magick
+  mini_racer
   mysql2 (~> 0.5.3)
   paypalhttp (~> 1.0)
   pg
