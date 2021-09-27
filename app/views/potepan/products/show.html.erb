@@ -19,7 +19,7 @@
                 <li>
                   <a href="index.html">Home</a>
                 </li>
-                <li class="active">Single Product</li>
+                <li class="active"><%= @product.name %></li>
               </ol>
             </div>
           </div>
@@ -35,27 +35,31 @@
                 <div class="media-left productSlider">
                   <div id="carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
-                      <div class="item active" data-thumb="0">
-                        <%= image_tag @product.display_image.attachment(:small) %>
-                      </div>
-                      <div class="item" data-thumb="1">
-                        <%= image_tag @product.display_image.attachment(:small) %>
-                      </div>
-                      <div class="item" data-thumb="2">
-                        <%= image_tag @product.display_image.attachment(:large) %>
-                      </div>
-                      <div class="item" data-thumb="3">
-                        <%= image_tag @product.display_image.attachment(:large) %>
-                      </div>
+                      <% @product.images.each do |p|  %>
+                        <div class="item active" data-thumb="0">
+                          <%= image_tag p.attachment(:small) %>
+                        </div>
+                        <div class="item" data-thumb="1">
+                          <%= image_tag p.attachment(:small) %>
+                        </div>
+                        <div class="item" data-thumb="2">
+                          <%= image_tag p.attachment(:small) %>
+                        </div>
+                        <div class="item" data-thumb="3">
+                          <%= image_tag p.attachment(:small) %>
+                        </div>
+                      <% end %>
                     </div>
                   </div>
                   <div class="clearfix">
                     <div id="thumbcarousel" class="carousel slide" data-interval="false">
                       <div class="carousel-inner">
-                          <div data-target="#carousel" data-slide-to="0" class="thumb"><%= image_tag @product.display_image.attachment(:small) %></div>
-                          <div data-target="#carousel" data-slide-to="1" class="thumb"><%= image_tag @product.display_image.attachment(:large) %></div>
-                          <div data-target="#carousel" data-slide-to="2" class="thumb"><%= image_tag @product.display_image.attachment(:large) %></div>
-                          <div data-target="#carousel" data-slide-to="3" class="thumb"><%= image_tag @product.display_image.attachment(:large) %></div>
+                        <% @product.images.each do |p|  %>
+                          <div data-target="#carousel" data-slide-to="0" class="thumb"><%= image_tag p.attachment(:small) %></div>
+                          <div data-target="#carousel" data-slide-to="1" class="thumb"><%= image_tag p.attachment(:small) %></div>
+                          <div data-target="#carousel" data-slide-to="2" class="thumb"><%= image_tag p.attachment(:small) %></div>
+                          <div data-target="#carousel" data-slide-to="3" class="thumb"><%= image_tag p.attachment(:small) %></div>
+                        <% end %>
                       </div>
                       <a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left"></span>
