@@ -35,18 +35,18 @@
                 <div class="media-left productSlider">
                   <div id="carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
-                      <% @product.images.each do |p| %>
+                      <% @product.images.each do |image| %>
                         <div class="item active" data-thumb="0">
-                          <%= image_tag p.attachment(:small) %>
+                          <%= image_tag image.attachment(:small) %>
                         </div>
                         <div class="item" data-thumb="1">
-                          <%= image_tag p.attachment(:small) %>
+                          <%= image_tag image.attachment(:small) %>
                         </div>
                         <div class="item" data-thumb="2">
-                          <%= image_tag p.attachment(:small) %>
+                          <%= image_tag image.attachment(:small) %>
                         </div>
                         <div class="item" data-thumb="3">
-                          <%= image_tag p.attachment(:small) %>
+                          <%= image_tag image.attachment(:small) %>
                         </div>
                       <% end %>
                     </div>
@@ -54,11 +54,11 @@
                   <div class="clearfix">
                     <div id="thumbcarousel" class="carousel slide" data-interval="false">
                       <div class="carousel-inner">
-                        <% @product.images.each do |p| %>
-                          <div data-target="#carousel" data-slide-to="0" class="thumb"><%= image_tag p.attachment(:small) %></div>
-                          <div data-target="#carousel" data-slide-to="1" class="thumb"><%= image_tag p.attachment(:small) %></div>
-                          <div data-target="#carousel" data-slide-to="2" class="thumb"><%= image_tag p.attachment(:small) %></div>
-                          <div data-target="#carousel" data-slide-to="3" class="thumb"><%= image_tag p.attachment(:small) %></div>
+                        <% @product.images.each do |image| %>
+                          <div data-target="#carousel" data-slide-to="0" class="thumb"><%= image_tag image.attachment(:small) %></div>
+                          <div data-target="#carousel" data-slide-to="1" class="thumb"><%= image_tag image.attachment(:small) %></div>
+                          <div data-target="#carousel" data-slide-to="2" class="thumb"><%= image_tag image.attachment(:small) %></div>
+                          <div data-target="#carousel" data-slide-to="3" class="thumb"><%= image_tag image.attachment(:small) %></div>
                         <% end %>
                       </div>
                       <a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev">
