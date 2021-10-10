@@ -10,8 +10,8 @@ RSpec.feature '商品詳細ページ' do
 
   scenario '画像表示テスト(have_selector)' do
     visit potepan_product_path(product.id)
-      product.images.each do |image|
-        expect(page).to have_selector ("img,[src$='#{image.filename}']")
-      end
+    product.images.each do |image|
+      expect(page).to have_selector("img,[src$='#{image.filename}']")
+    end
   end
 end
