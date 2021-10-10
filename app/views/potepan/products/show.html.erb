@@ -36,18 +36,10 @@
                   <div id="carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                       <% @product.images.each do |image| %>
-                        <div class="item active" data-thumb="0">
-                          <%= image_tag image.attachment(:small) %>
-                        </div>
-                        <div class="item" data-thumb="1">
-                          <%= image_tag image.attachment(:small) %>
-                        </div>
-                        <div class="item" data-thumb="2">
-                          <%= image_tag image.attachment(:small) %>
-                        </div>
-                        <div class="item" data-thumb="3">
-                          <%= image_tag image.attachment(:small) %>
-                        </div>
+                        <div class="item active" data-thumb="0"><%= image_tag image.attachment(:small) %></div>
+                        <div class="item" data-thumb="1"><%= image_tag image.attachment(:small) %></div>
+                        <div class="item" data-thumb="2"><%= image_tag image.attachment(:small) %></div>
+                        <div class="item" data-thumb="3"><%= image_tag image.attachment(:small) %></div>
                       <% end %>
                     </div>
                   </div>
@@ -73,8 +65,8 @@
                 <div class="media-body">
                   <ul class="list-inline">
                     <li>
-                       <a href="index"><i class="fa fa-reply" aria-hidden="true"></i></a>
-                       <%= link_to " 一覧ページへ戻る", potepan_index_path %>
+                      <a href="index"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                      <%= link_to " 一覧ページへ戻る", potepan_index_path %>
                     </li>
                     <!-- <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Share This</a></li> -->
                   </ul>
