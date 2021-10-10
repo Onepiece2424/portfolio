@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><% content_for(:title, @product.name) %></title>
+    <%= render partial: 'shared/page_title', locals: { page_title: @product.name } %>
   </head>
   <body>
    <%= render "shared/partial" %>
