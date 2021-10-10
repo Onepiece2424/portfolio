@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Spree::Products", type: :request do
   let!(:product) { create(:product) }
+
   before do
     get "/products/#{product.id}"
   end
@@ -19,7 +20,7 @@ RSpec.describe "Spree::Products", type: :request do
       expect(response.body). to include product.price.to_s
     end
 
-    it '商品名が表示されること' do
+    it '商品説明が表示されること' do
       expect(response.body). to include product.description
     end
   end
