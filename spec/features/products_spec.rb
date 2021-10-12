@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature '商品詳細ページ' do
-  given!(:product) { create(:product) }
-  given!(:image) { create(:image) }
+  given(:product) { create(:product) }
+  given(:image) { create(:image) }
 
   before do
     product.images << image
