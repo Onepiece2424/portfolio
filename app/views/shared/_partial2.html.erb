@@ -1,75 +1,75 @@
 <!-- FOOTER -->
-    <!-- COPY RIGHT -->
-    <div id="footer" class="copyRight clearfix">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-7 col-xs-12">
-            <p>&copy; 2016-<%= Time.current.year %> Copyright Potepan Store .</p>
-          </div>
-          <div class="col-sm-5 col-xs-12">
-            <ul class="list-inline">
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            </ul>
-          </div>
-        </div>
+<!-- COPY RIGHT -->
+<div id="footer" class="copyRight clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-7 col-xs-12">
+        <p>&copy; 2016-<%= Time.current.year %> Copyright Potepan Store .</p>
+      </div>
+      <div class="col-sm-5 col-xs-12">
+        <ul class="list-inline">
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+        </ul>
       </div>
     </div>
-    <!-- LOGIN MODAL -->
-    <div class="modal fade login-modal" id="login" tabindex="-1" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3 class="modal-title">ログイン</h3>
+  </div>
+</div>
+<!-- LOGIN MODAL -->
+<div class="modal fade login-modal" id="login" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title">ログイン</h3>
+      </div>
+      <div class="modal-body">
+        <form action="login-" method="POST" role="form">
+          <div class="form-group">
+            <label for="login-email">メールアドレス</label>
+            <input type="email" class="form-control" id="login-email">
           </div>
-          <div class="modal-body">
-            <form action="login-" method="POST" role="form">
-              <div class="form-group">
-                <label for="login-email">メールアドレス</label>
-                <input type="email" class="form-control" id="login-email">
-              </div>
-              <div class="form-group">
-                <label for="login-password">パスワード</label>
-                <input type="password" class="form-control" id="login-password">
-              </div>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"> 記憶しておく
-                </label>
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">ログイン</button>
-              <a href="lost-password.html" class="btn btn-link btn-block">パスワードをお忘れの方</a>
-            </form>
+          <div class="form-group">
+            <label for="login-password">パスワード</label>
+            <input type="password" class="form-control" id="login-password">
           </div>
-        </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> 記憶しておく
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">ログイン</button>
+          <a href="lost-password.html" class="btn btn-link btn-block">パスワードをお忘れの方</a>
+        </form>
       </div>
     </div>
-    <!-- SIGN UP MODAL -->
-    <div class="modal fade" id="signup" tabindex="-1" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3 class="modal-title">新規登録</h3>
+  </div>
+</div>
+<!-- SIGN UP MODAL -->
+<div class="modal fade" id="signup" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title">新規登録</h3>
+      </div>
+      <div class="modal-body">
+        <form action="" method="POST" role="form">
+          <div class="form-group">
+            <label for="signup-email">メールアドレス</label>
+            <input type="email" class="form-control" id="signup-email">
           </div>
-          <div class="modal-body">
-            <form action="" method="POST" role="form">
-              <div class="form-group">
-                <label for="signup-email">メールアドレス</label>
-                <input type="email" class="form-control" id="signup-email">
-              </div>
-              <div class="form-group">
-                <label for="signup-password">パスワード</label>
-                <input type="password" class="form-control" id="signup-password">
-              </div>
-              <div class="form-group">
-                <label for="signup-password-confirmation">パスワード（確認用）</label>
-                <input type="password" class="form-control" id="signup-password-confirmation">
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">登録する</button>
-            </form>
+          <div class="form-group">
+            <label for="signup-password">パスワード</label>
+            <input type="password" class="form-control" id="signup-password">
           </div>
-        </div>
+          <div class="form-group">
+            <label for="signup-password-confirmation">パスワード（確認用）</label>
+            <input type="password" class="form-control" id="signup-password-confirmation">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">登録する</button>
+        </form>
       </div>
     </div>
+  </div>
+</div>
