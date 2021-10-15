@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Spree::Products", type: :request do
-  let!(:product) { create(:product) }
+  let(:product) { create(:product) }
 
   before do
     get "/products/#{product.id}"
