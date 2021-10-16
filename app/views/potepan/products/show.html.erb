@@ -1,6 +1,6 @@
-<head>
-  <%= render partial: 'shared/page_title', locals: { page_title: @product.name } %>
-</head>
+<% content_for :head do %>
+  <%= @product.name %>
+<% end %>
 <body>
   <%= render "shared/header" %>
 
