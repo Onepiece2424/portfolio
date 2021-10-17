@@ -1,84 +1,84 @@
 <%= render "shared/header" %>
-  <!-- LIGHT SECTION -->
-  <section class="lightSection clearfix pageHeader">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-6">
-          <div class="page-title">
-            <h2><%= @product.name %></h2>
-          </div>
-        </div>
-        <div class="col-xs-6">
-          <ol class="breadcrumb pull-right">
-            <li><a href="index.html">Home</a></li>
-            <li class="active"><%= @product.name %></li>
-          </ol>
+<!-- LIGHT SECTION -->
+<section class="lightSection clearfix pageHeader">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="page-title">
+          <h2><%= @product.name %></h2>
         </div>
       </div>
+      <div class="col-xs-6">
+        <ol class="breadcrumb pull-right">
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><%= @product.name %></li>
+        </ol>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- MAIN CONTENT SECTION -->
-  <section class="mainContent clearfix">
-    <div class="container">
-      <div class="row singleProduct">
-        <div class="col-xs-12">
-          <div class="media">
-            <div class="media-left productSlider">
-              <div id="carousel" class="carousel slide" data-ride="carousel">
+<!-- MAIN CONTENT SECTION -->
+<section class="mainContent clearfix">
+  <div class="container">
+    <div class="row singleProduct">
+      <div class="col-xs-12">
+        <div class="media">
+          <div class="media-left productSlider">
+            <div id="carousel" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <% @product.images.each_with_index do |image, i| %>
+                  <div class="item <%= "active" if i.zero? %>" data-thumb="<%= i %>"><%= image_tag image.attachment(:small) %></div>
+                <% end %>
+              </div>
+            </div>
+            <div class="clearfix">
+              <div id="thumbcarousel" class="carousel slide" data-interval="false">
                 <div class="carousel-inner">
-                  <% @product.images.each_with_index do |image, i| %>
-                    <div class="item <%= "active" if i.zero? %>" data-thumb="<%= i %>"><%= image_tag image.attachment(:small) %></div>
+                  <% @product.images.each_with_index do |image, index| %>
+                    <div data-target="#carousel" data-slide-to="<%= index %>" class="thumb"><%= image_tag image.attachment(:small) %></div>
                   <% end %>
                 </div>
-              </div>
-              <div class="clearfix">
-                <div id="thumbcarousel" class="carousel slide" data-interval="false">
-                  <div class="carousel-inner">
-                    <% @product.images.each_with_index do |image, index| %>
-                      <div data-target="#carousel" data-slide-to="<%= index %>" class="thumb"><%= image_tag image.attachment(:small) %></div>
-                    <% end %>
-                  </div>
-                  <a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                  </a>
-                  <a class="right carousel-control" href="#thumbcarousel" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                  </a>
-                </div>
+                <a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#thumbcarousel" role="button" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
               </div>
             </div>
-            <div class="media-body">
-              <ul class="list-inline">
-                <li><a href="index"><i class="fa fa-reply" aria-hidden="true"></i></a><%= link_to " 一覧ページへ戻る", potepan_index_path %></li>
-              </ul>
-              <h2><%= @product.name %></h2>
-              <h3><%= @product.display_price %></h3>
-              <p><%= @product.description %></p>
-              <span class="quick-drop">
-                <select name="guiest_id3" id="guiest_id3" class="select-drop">
-                  <option value="0">S</option>
-                  <option value="1">M</option>
-                  <option value="2">L</option>
-                  <option value="3">XL</option>
-                </select>
-              </span>
-              <span class="quick-drop resizeWidth">
-                <select name="guiest_id4" id="guiest_id4" class="select-drop">
-                <!--   <option value="0">Qty</option> -->
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                </select>
-              </span>
-              <div class="btn-area">
-                <a href="cart_page.html" class="btn btn-primary btn-block">カートへ入れる<i class="fa fa-angle-right" aria-hidden="true"></i></a>
-              </div>
+          </div>
+          <div class="media-body">
+            <ul class="list-inline">
+              <li><a href="index"><i class="fa fa-reply" aria-hidden="true"></i></a><%= link_to " 一覧ページへ戻る", potepan_index_path %></li>
+            </ul>
+            <h2><%= @product.name %></h2>
+            <h3><%= @product.display_price %></h3>
+            <p><%= @product.description %></p>
+            <span class="quick-drop">
+              <select name="guiest_id3" id="guiest_id3" class="select-drop">
+                <option value="0">S</option>
+                <option value="1">M</option>
+                <option value="2">L</option>
+                <option value="3">XL</option>
+              </select>
+            </span>
+            <span class="quick-drop resizeWidth">
+              <select name="guiest_id4" id="guiest_id4" class="select-drop">
+              <!--   <option value="0">Qty</option> -->
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </span>
+            <div class="btn-area">
+              <a href="cart_page.html" class="btn btn-primary btn-block">カートへ入れる<i class="fa fa-angle-right" aria-hidden="true"></i></a>
             </div>
           </div>
         </div>
       </div>
-      <%= render "shared/category" %>
     </div>
-  </section>
+    <%= render "shared/category" %>
+  </div>
+</section>
 <%= render "shared/footer" %>
