@@ -41,10 +41,6 @@ RSpec.feature '商品詳細ページ' do
     expect(page).to have_content product.description
   end
 
-  scenario '商品リンクのテスト' do
-    expect(page).to have_link '一覧ページへ戻る'
-  end
-
   scenario '商品リンク(Home)のテスト' do
     expect(page).to have_link 'Home'
   end
