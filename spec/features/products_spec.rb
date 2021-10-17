@@ -15,8 +15,22 @@ RSpec.feature '商品詳細ページ' do
     end
   end
 
-  scenario '商品名テスト' do
-    expect(page).to have_content product.name
+  scenario '商品名テスト(div.page-title部分のproduct.nameのテスト)' do
+    within(:css, 'div.page-title') do
+      expect(page).to have_content product.name
+    end
+  end
+
+  scenario '商品名テスト(ol.breadcrumb部分のproduct.nameのテスト)' do
+    within(:css, 'ol.breadcrumb') do
+      expect(page).to have_content product.name
+    end
+  end
+
+  scenario '商品名テスト(div.media-body部分のproduct.nameのテスト)' do
+    within(:css, 'div.media-body') do
+      expect(page).to have_content product.name
+    end
   end
 
   scenario '商品価格のテスト' do
