@@ -4,7 +4,7 @@ RSpec.describe "Spree::Products", type: :request do
   let(:product) { create(:product) }
 
   before do
-    get "/products/#{product.id}"
+    get potepan_product_url product.id
   end
 
   describe 'showページの表示' do
