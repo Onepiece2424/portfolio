@@ -40,4 +40,21 @@ RSpec.feature '商品詳細ページ' do
   scenario '商品説明のテスト' do
     expect(page).to have_content product.description
   end
+
+  scenario '商品リンクのテスト' do
+    expect(page).to have_link '一覧ページへ戻る'
+  end
+
+  scenario '商品リンク(Home)のテスト' do
+    expect(page).to have_link 'Home'
+  end
+
+  scenario '商品リンク(一覧ページへ戻る)のテスト' do
+    expect(page).to have_link '一覧ページへ戻る'
+  end
+
+  scenario '商品リンク(BIGBAG)のテスト' do
+    find("div.navbar-header").click
+    expect(page).to have_css '.navbar-brand'
+  end
 end
