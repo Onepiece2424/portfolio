@@ -23,5 +23,9 @@ RSpec.describe "Spree::Products", type: :request do
     it '商品説明が表示されること' do
       expect(response.body). to include product.description
     end
+
+    it '商品タイトルが存在していること' do
+      assert_select "title", "#{product.name} - BIGBAG Store"
+    end
   end
 end
