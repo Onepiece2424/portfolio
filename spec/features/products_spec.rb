@@ -5,8 +5,8 @@ RSpec.feature '商品詳細ページ' do
   given(:image) { create(:image) }
 
   background do
-    visit potepan_product_path(product.id)
     product.images << image
+    visit potepan_product_path(product.id)
   end
 
   scenario '画像表示テスト(have_selector)' do
