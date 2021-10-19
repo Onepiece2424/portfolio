@@ -8,7 +8,7 @@ RSpec.describe "Spree::Products", type: :request do
   end
 
   describe 'showページの表示' do
-    it 'リクエスト200が返ってくるかどうか確認' do
+    it 'レスポンスが返ってくること' do
       expect(response.status).to eq(200)
     end
 
