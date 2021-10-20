@@ -55,7 +55,7 @@
 #   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
 #   gem 'web-console', '>= 4.1.0'
 #   gem 'listen', '>= 3.0.5', '< 4.0'
-#   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+#   Read more: https://github.com/rails/spring
 #   gem 'spring'
 #   gem 'spring-watcher-listen', '~> 2.0.1'
 # end
@@ -65,10 +65,6 @@
 
 # gem "aws-sdk", "~> 3.0"
 # gem "aws-sdk-s3", require: false
-
-
-
-
 
 source 'https://rubygems.org'
 
@@ -121,6 +117,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rails-erd'
   gem 'annotate'
+  gem 'rubocop-airbnb'
 end
 
 group :development do
@@ -130,6 +127,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.1'
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -143,3 +144,11 @@ gem 'sqlite3', group: :development
 
 # 本番環境(heroku)ではPostgreSQLを使用
 gem 'pg', group: :production
+
+group :test do
+  gem 'capybara'
+end
+
+gem 'mini_magick'
+gem 'image_processing'
+gem 'mini_racer'
