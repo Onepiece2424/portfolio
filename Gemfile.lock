@@ -78,6 +78,8 @@ GEM
       activerecord (>= 4.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    ancestry (4.1.0)
+      activerecord (>= 5.2.6)
     annotate (3.1.1)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
@@ -1546,7 +1548,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ancestry
   annotate
+  awesome_nested_set
   aws-sdk (~> 3.0)
   aws-sdk-s3
   bootsnap
