@@ -152,5 +152,3 @@ end
 gem 'mini_magick'
 gem 'image_processing'
 gem 'mini_racer'
-gem 'ancestry'
-gem 'awesome_nested_set'
