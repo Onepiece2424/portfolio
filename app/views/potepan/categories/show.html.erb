@@ -40,7 +40,7 @@
                     <% taxonomy.taxons.leaves.each do |taxon| %>
                       <li>
                         <%= link_to potepan_category_path(taxon.id) do %>
-                          <i class="fa fa-caret-right" aria-hidden="true"></i><%= taxon.name %> <span class="products-count">(<%= @products.in_taxon(taxon).count %>)</span>
+                          <i class="fa fa-caret-right" aria-hidden="true"></i><%= taxon.name %><span class="products-count">(<%= @products.in_taxon(taxon).count %>)</span>
                         <% end %>
                       </li>
                     <% end %>
@@ -99,7 +99,7 @@
             <div class="productBox">
               <%= link_to potepan_product_path(product.id) do %>
                 <div class="productImage clearfix">
-                  <%= image_tag(product.display_image.attachment.url, :alt =>   "products-img") %>
+                  <%= image_tag rails_blob_path(product.images.first.attachment), :alt =>   "products-img" %>
                 </div>
                 <div class="productCaption clearfix">
                   <h5><%= product.name %></h5>
