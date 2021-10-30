@@ -27,7 +27,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3 col-sm-4 col-xs-12 sideBar">
-        <%= render partial: "shared/product_category", locals: { taxonomies: @taxonomies, products: @products } %>
+        <%= render partial: "shared/product_category", locals: { taxonomies: @taxonomies, products: @products, taxon_products: @taxon_products } %>
         <%= render "shared/color_category" %>
         <%= render "shared/size_category" %>
       </div>
