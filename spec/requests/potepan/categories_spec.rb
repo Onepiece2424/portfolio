@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Spree::Taxon,Spree::Taxonomy", type: :request do
   let(:taxonomy) { create(:taxonomy) }
-  let(:taxon) { create(:taxon, taxonomy: taxonomy) }
+  let(:taxon) { create(:taxon) }
   let(:product) { create(:product, taxons: [taxon]) }
   let(:image) { create(:image) }
 
