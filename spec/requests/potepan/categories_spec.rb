@@ -16,16 +16,19 @@ RSpec.describe "Spree::Taxon,Spree::Taxonomy", type: :request do
       expect(response.status).to eq(200)
     end
 
+    it 'page内に「CATEGORIES」「BRAND」などの文字列が表示されること' do
+      expect(response.body). to include taxon.taxonomy.name
+    end
+
     it 'カテゴリー別商品一覧の商品名が表示されること' do
-      expect(response.body). to include taxon.name
+      expect(response.body). to include product.name
     end
 
     it 'カテゴリー別商品一覧の商品価格が表示されること' do
       expect(response.body). to include product.display_price.to_s
     end
 
-    it "左サイドバーの商品カテゴリーの一覧が表示されること" do
-      expect(response.body).to include taxonomy.root.name
+    it '左サイドバーの商品カテゴリーの一覧が表示されること' do
       taxonomy.taxons.leaves.each do |taxon|
         expect(response.body).to include taxon.name
       end
