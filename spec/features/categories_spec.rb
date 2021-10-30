@@ -23,11 +23,11 @@ RSpec.feature "Potepan::Categories", type: :feature do
   end
 
   scenario 'page内に文字列「CATEGORIES」「BRAND」が表示されること' do
-    expect(page).to have_content taxon.name
+    expect(page).to have_content taxonomy.taxons.root.name
   end
 
   scenario 'page内のliタグに文字列「CATEGORIES」「BRAND」が表示されること' do
-    expect(page).to have_selector 'li', text: taxon.name
+    expect(page).to have_selector 'li', text: taxonomy.taxons.root.name
   end
 
   scenario 'page内のh2タグに文字列「CATEGORIES」「BRAND」が表示されること' do
