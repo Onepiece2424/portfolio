@@ -11,16 +11,16 @@ RSpec.describe "Spree::Taxon,Spree::Taxonomy", type: :request do
     get potepan_category_url taxon.id
   end
 
-  describe 'showページの表示' do
+  describe 'カテゴリー別商品一覧のページ表示' do
     it 'レスポンスが返ってくること' do
       expect(response.status).to eq(200)
     end
 
-    it 'カテゴリー一覧の商品名が表示されること' do
+    it 'カテゴリー別商品一覧の商品名が表示されること' do
       expect(response.body). to include taxon.name
     end
 
-    it 'カテゴリー一覧の商品価格が表示されること' do
+    it 'カテゴリー別商品一覧の商品価格が表示されること' do
       expect(response.body). to include product.display_price.to_s
     end
 
@@ -31,7 +31,7 @@ RSpec.describe "Spree::Taxon,Spree::Taxonomy", type: :request do
       end
     end
 
-    it 'カテゴリー一覧商品画像が表示されること' do
+    it 'カテゴリー別商品一覧の商品画像が表示されること' do
       expect(response.body).to include rails_blob_path(product.images.first.attachment)
     end
 
