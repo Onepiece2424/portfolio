@@ -33,4 +33,17 @@ RSpec.feature "Potepan::Categories", type: :feature do
   scenario 'page内のh2タグに文字列「CATEGORIES」「BRAND」が表示されること' do
     expect(page).to have_selector 'h2', text: taxon.name
   end
+
+  scenario 'CategoriesまたはBrandをクリックしたらカテゴリー一覧が表示されること' do
+    find('ul.collapse').click
+    taxonomy.taxons.leaves.each do |taxon|
+      expect(page).to have_content taxon.name
+      expect(page).to have_content taxon.products.count
+    end
+  end
+
+  scenario 'カテゴリー別のページへ移動すること' do
+    find('ul.collapse').click
+    visit potepan_category_path(taxon.id)
+  end
 end
