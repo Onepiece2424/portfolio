@@ -46,4 +46,9 @@ RSpec.feature "Potepan::Categories", type: :feature do
     find('ul.collapse').click
     visit potepan_category_path(taxon.id)
   end
+
+  scenario '商品のクリック後、商品詳細ページへ移動すること' do
+    find('.col-sm-4').click
+    visit potepan_product_path(product.id)
+  end
 end
