@@ -3,6 +3,6 @@ class Potepan::CategoriesController < ApplicationController
     @taxonomies = Spree::Taxonomy.includes([:taxons])
     @taxon = Spree::Taxon.find(params[:id])
     @taxon_products = Spree::Product.in_taxons(@taxon).includes(:master, :variants)
-    @products = Spree::Product.includes(master: :default_price)
+    @products = Spree::Product.in_taxons(@taxon).includes(master: :default_price)
   end
 end
