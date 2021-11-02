@@ -56,7 +56,10 @@ RSpec.feature '商品詳細ページ' do
   end
 
   scenario '商品リンク(BIGBAG)のテスト' do
-    find("div.navbar-header").click
     expect(page).to have_css '.navbar-brand'
+  end
+
+  scenario '「一覧ページへ戻る」リンクのテスト' do
+    expect(page).to have_link '一覧ページへ戻る'
   end
 end
