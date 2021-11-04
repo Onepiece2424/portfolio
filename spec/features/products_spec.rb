@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature '商品詳細ページ' do
-  given(:product) { create(:product) }
+  given(:product) { create(:product, taxons: [taxon]) }
   given(:image) { create(:image) }
+  given(:taxon) { create(:taxon) }
 
   background do
     product.images << image
