@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Potepan::Categories", type: :feature do
   given(:taxonomy) { create(:taxonomy) }
   given(:taxon) { create(:taxon) }
-  given(:product) { create(:product) }
+  given(:product) { create(:product, taxons: [taxon]) }
   given(:image) { create(:image) }
 
   background do
@@ -50,7 +50,7 @@ RSpec.feature "Potepan::Categories", type: :feature do
   end
 
   scenario '商品画像、商品名、商品価格のクリック後、商品詳細ページへ移動すること' do
-    find('.col-sm-4').click
+    find('div.productBox').click
     visit potepan_product_path(product.id)
   end
 
