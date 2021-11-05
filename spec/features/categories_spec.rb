@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Potepan::Categories", type: :feature do
   given(:taxonomy) { create(:taxonomy) }
-  given(:taxon) { create(:taxon) }
+  given(:taxon) { create(:taxon, taxonomy: taxonomy, parent: taxonomy.root) }
   given(:product) { create(:product, taxons: [taxon]) }
   given(:image) { create(:image) }
 
@@ -36,12 +36,12 @@ RSpec.feature "Potepan::Categories", type: :feature do
     expect(page).to have_selector 'h2', text: taxon.name
   end
 
-  scenario 'CategoriesまたはBrandをクリックしたらカテゴリー一覧が表示されること' do
+  scenario 'CategoriesまたはBrandをクリックしたら、カテゴリー一覧が表示されること。さらに、カテゴリー件数と商品一覧の商品数が一致すること' do
     find('ul.collapse').click
     taxonomy.taxons.leaves.each do |taxon|
       expect(page).to have_content taxon.name
       expect(page).to have_content taxon.products.count
-      expect(page.all('ul.collapse collapseItem').count).to eq taxon.products.count
+      expect(page.all('.productBox').count).to eq taxon.products.count
     end
   end
 
