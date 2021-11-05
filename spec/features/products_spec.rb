@@ -63,4 +63,11 @@ RSpec.feature '商品詳細ページ' do
   scenario '「一覧ページへ戻る」リンクのテスト' do
     expect(page).to have_link '一覧ページへ戻る'
   end
+
+  scenario '「一覧ページへ戻る」リンクをクリック後、カテゴリー一覧ページへ移動することを確認するテスト' do
+    within ('.media-body') do
+      find("ul.list-inline").click
+      visit potepan_category_path(product.taxons.first.id)
+    end
+  end
 end
