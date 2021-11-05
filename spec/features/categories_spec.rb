@@ -41,6 +41,7 @@ RSpec.feature "Potepan::Categories", type: :feature do
     taxonomy.taxons.leaves.each do |taxon|
       expect(page).to have_content taxon.name
       expect(page).to have_content taxon.products.count
+      expect(page.all('ul.collapse collapseItem').count).to eq taxon.products.count
     end
   end
 
