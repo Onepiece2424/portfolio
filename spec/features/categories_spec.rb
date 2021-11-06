@@ -46,10 +46,19 @@ RSpec.feature "Potepan::Categories", type: :feature do
     end
   end
 
-  scenario 'カテゴリー別のページへ移動すること' do
+  scenario 'カテゴリー件数をクリック後、カテゴリー別のページへ移動すること' do
     find('ul.collapse').click
-    visit potepan_category_path(taxon.id)
     expect(page).to have_current_path potepan_category_path(taxon.id)
+  end
+
+  scenario '商品名のクリック後、商品詳細ページへ移動すること' do
+    click_on product.name
+    expect(page).to have_current_path potepan_product_path(product.id)
+  end
+
+  scenario '商品価格のクリック後、商品詳細ページへ移動すること' do
+    click_on product.display_price
+    expect(page).to have_current_path potepan_product_path(product.id)
   end
 
   scenario 'カテゴリー一覧の商品画像が表示すること' do
