@@ -20,8 +20,9 @@ RSpec.feature "Potepan::Categories", type: :feature do
   end
 
   scenario 'Homeリンクをクリック後、トップページへ移動ができること' do
-    find('.breadcrumb', text: 'Home').click
-    visit potepan_index_path
+    within('ol.breadcrumb') do
+      click_link 'Home'
+    end
     expect(page).to have_current_path potepan_index_path
   end
 
