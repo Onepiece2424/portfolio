@@ -52,12 +52,6 @@ RSpec.feature "Potepan::Categories", type: :feature do
     expect(page).to have_current_path potepan_category_path(taxon.id)
   end
 
-  scenario '商品画像、商品名、商品価格のクリック後、商品詳細ページへ移動すること' do
-    find('div.productBox').click
-    visit potepan_product_path(product.id)
-    expect(page).to have_current_path potepan_product_path(product.id)
-  end
-
   scenario 'カテゴリー一覧の商品画像が表示すること' do
     product.images.each do |image|
       expect(page).to have_selector("img,[src$='#{image.filename}']")
