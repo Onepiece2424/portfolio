@@ -22,6 +22,7 @@ RSpec.feature "Potepan::Categories", type: :feature do
   scenario 'Homeリンクをクリック後、トップページへ移動ができること' do
     find('.breadcrumb', text: 'Home').click
     visit potepan_index_path
+    expect(page).to have_current_path potepan_index_path
   end
 
   scenario 'page内に文字列「CATEGORIES」「BRAND」が表示されること' do
@@ -48,11 +49,13 @@ RSpec.feature "Potepan::Categories", type: :feature do
   scenario 'カテゴリー別のページへ移動すること' do
     find('ul.collapse').click
     visit potepan_category_path(taxon.id)
+    expect(page).to have_current_path potepan_category_path(taxon.id)
   end
 
   scenario '商品画像、商品名、商品価格のクリック後、商品詳細ページへ移動すること' do
     find('div.productBox').click
     visit potepan_product_path(product.id)
+    expect(page).to have_current_path potepan_product_path(product.id)
   end
 
   scenario 'カテゴリー一覧の商品画像が表示すること' do

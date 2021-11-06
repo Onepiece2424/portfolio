@@ -69,5 +69,6 @@ RSpec.feature '商品詳細ページ' do
       find("ul.list-inline").click
       visit potepan_category_path(product.taxons.first.id)
     end
+    expect(page).to have_current_path potepan_category_path(product.taxons.first.id)
   end
 end
