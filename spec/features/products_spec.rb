@@ -60,10 +60,6 @@ RSpec.feature '商品詳細ページ' do
     expect(page).to have_css '.navbar-brand'
   end
 
-  scenario '「一覧ページへ戻る」リンクのテスト' do
-    expect(page).to have_link '一覧ページへ戻る'
-  end
-
   scenario '「一覧ページへ戻る」リンクをクリック後、カテゴリー一覧ページへ移動することを確認するテスト' do
     click_on '一覧ページへ戻る'
     expect(page).to have_current_path potepan_category_path(product.taxons.first.id)
