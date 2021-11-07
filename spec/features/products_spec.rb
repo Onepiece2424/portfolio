@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature '商品詳細ページ' do
-  given(:product) { create(:product) }
+  given(:product) { create(:product, taxons: [taxon]) }
   given(:image) { create(:image) }
+  given(:taxon) { create(:taxon) }
 
   background do
     product.images << image
@@ -56,7 +57,11 @@ RSpec.feature '商品詳細ページ' do
   end
 
   scenario '商品リンク(BIGBAG)のテスト' do
-    find("div.navbar-header").click
     expect(page).to have_css '.navbar-brand'
+  end
+
+  scenario '「一覧ページへ戻る」リンクをクリック後、カテゴリー一覧ページへ移動することを確認するテスト' do
+    click_on '一覧ページへ戻る'
+    expect(page).to have_current_path potepan_category_path(product.taxons.first.id)
   end
 end
