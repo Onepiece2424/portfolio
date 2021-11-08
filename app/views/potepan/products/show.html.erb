@@ -80,6 +80,6 @@
         </div>
       </div>
     </div>
-    <%= render "shared/related_products" %>
+    <%= render partial: 'potepan/products/related_products', locals: { related_product: @related_product }  %>
   </div>
 </section>
