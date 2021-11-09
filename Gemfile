@@ -152,4 +152,3 @@ end
 gem 'mini_magick'
 gem 'image_processing'
 gem 'mini_racer'
-gem 'active_decorator'
