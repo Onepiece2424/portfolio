@@ -5,7 +5,6 @@ RSpec.feature "Potepan::Categories", type: :feature do
   given(:taxon) { create(:taxon, taxonomy: taxonomy, parent: taxonomy.root) }
   given(:product) { create(:product, taxons: [taxon]) }
   given(:image) { create(:image) }
-  given(:related_product) { create(:product) }
 
   background do
     product.images << image

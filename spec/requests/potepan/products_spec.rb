@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe "Spree::Products", type: :request do
   let(:product) { create(:product, taxons: [taxon]) }
   let(:taxon) { create(:taxon) }
-  let(:related_product) { create(:product) }
 
   before do
     get potepan_product_url product.id
