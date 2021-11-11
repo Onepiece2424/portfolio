@@ -4,6 +4,7 @@ RSpec.feature '商品詳細ページ' do
   given(:product) { create(:product, taxons: [taxon]) }
   given(:image) { create(:image) }
   given(:taxon) { create(:taxon) }
+  given(:related_product) { create(:product, taxons: [taxon]) }
 
   background do
     product.images << image
@@ -63,5 +64,14 @@ RSpec.feature '商品詳細ページ' do
   scenario '「一覧ページへ戻る」リンクをクリック後、カテゴリー一覧ページへ移動することを確認するテスト' do
     click_on '一覧ページへ戻る'
     expect(page).to have_current_path potepan_category_path(product.taxons.first.id)
+  end
+
+  scenario 'faeture spec 関連商品部分の商品名の表示テスト' do
+    visit potepan_product_url(related_product.id)
+    expect(page).to have_content related_product.name
+  end
+
+  scenario 'faeture spec 関連商品部分の商品価格の表示テスト' do
+    expect(page).to have_content related_product.display_price
   end
 end
