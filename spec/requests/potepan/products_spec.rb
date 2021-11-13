@@ -6,7 +6,7 @@ RSpec.describe "Spree::Products", type: :request do
   let(:image) { create(:image) }
   let(:taxonomy) { create(:taxonomy) }
   let(:related_product) { create(:product, taxons: [taxon]) }
- 
+
   before do
     related_product.images << image
     get potepan_product_url product.id
