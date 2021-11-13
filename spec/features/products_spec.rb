@@ -3,10 +3,11 @@ require 'rails_helper'
 RSpec.feature '商品詳細ページ' do
   given(:product) { create(:product, taxons: [taxon]) }
   given(:image) { create(:image) }
-  given(:taxon) { create(:taxon, taxonomy: taxonomy, parent: taxonomy.root) }
+  given(:taxon) { create(:taxon, taxonomy: taxonomy) }
   given(:image) { create(:image) }
   given(:taxonomy) { create(:taxonomy) }
   given(:related_product) { create(:product, taxons: [taxon]) }
+  given(:related_product_lists) { create_list(:product, 4, taxons: [taxon])}
 
   background do
     product.images << image
@@ -73,6 +74,7 @@ RSpec.feature '商品詳細ページ' do
   feature '商品詳細ページ、「関連商品(related_product)」部分のテスト(feature spec)' do
     background do
       related_product.images.push(create(:image))
+      related_product_lists.each { |related_product_list| related_product_list.images << create(:image) }
       visit potepan_product_path(product.id)
     end
 
@@ -85,17 +87,21 @@ RSpec.feature '商品詳細ページ' do
     end
 
     scenario '関連商品(related_product)の商品名(related_product.name)をクリック後、商品詳細ページへ移動すること' do
-      within('.productBox') do
+      within('.productsContent') do
         click_on related_product.name
       end
       expect(page).to have_current_path potepan_product_path(related_product.id)
     end
 
     scenario '関連商品(related_product)の商品価格(related_product.display_price)をクリック後、商品詳細ページへ移動すること' do
-      within('.productBox') do
-        click_on related_product.display_price
-      end
+      click_on related_product.display_price, match: :first
       expect(page).to have_current_path potepan_product_path(related_product.id)
+    end
+
+    scenario '関連商品(related_product)が4つ表示されていること(feature spec)' do
+      within('.productsContent') do
+        expect(page).to have_selector '.productBox', count:4
+      end
     end
   end
 end
