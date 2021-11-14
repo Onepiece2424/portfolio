@@ -6,6 +6,7 @@ RSpec.describe "Spree::Products", type: :request do
   let(:image) { create(:image) }
   let(:taxonomy) { create(:taxonomy) }
   let(:related_product) { create(:product, taxons: [taxon]) }
+  let(:related_product_lists) { create_list(:product, 4, taxons: [taxon]) }
 
   before do
     related_product.images << image
@@ -39,6 +40,10 @@ RSpec.describe "Spree::Products", type: :request do
       expect(response.body). to include related_product.name
       expect(response.body). to include related_product.display_price.to_s
       expect(response.body). to include rails_blob_path(related_product.images.first.attachment)
+    end
+
+    it '関連商品(related_product)の商品名が4つ表示されていること(request spec)' do
+      expect(related_product_lists.count).to eq 4
     end
   end
 end
