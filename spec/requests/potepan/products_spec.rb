@@ -42,7 +42,7 @@ RSpec.describe "Spree::Products", type: :request do
       expect(response.body). to include rails_blob_path(related_product.images.first.attachment)
     end
 
-    it '関連商品(related_product)の商品名が4つ表示されていること(request spec)' do
+    it '関連商品(related_product)の商品が4つ表示されていること(request spec)' do
       expect(related_product_lists.count).to eq 4
     end
   end
