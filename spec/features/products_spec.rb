@@ -4,10 +4,9 @@ RSpec.feature '商品詳細ページ' do
   given(:product) { create(:product, taxons: [taxon]) }
   given(:image) { create(:image) }
   given(:taxon) { create(:taxon, taxonomy: taxonomy) }
-  given(:image) { create(:image) }
   given(:taxonomy) { create(:taxonomy) }
   given(:related_product) { create(:product, taxons: [taxon]) }
-  given(:related_product_lists) { create_list(:product, 4, taxons: [taxon])}
+  given(:related_products) { create_list(:product, 4, taxons: [taxon]) }
 
   background do
     product.images << image
@@ -71,10 +70,10 @@ RSpec.feature '商品詳細ページ' do
     end
   end
 
-  feature '商品詳細ページ、「関連商品(related_product)」部分のテスト(feature spec)' do
+  feature '商品詳細ページの関連商品(related_product)部分のテスト(feature spec)' do
     background do
       related_product.images.push(create(:image))
-      related_product_lists.each { |related_product_list| related_product_list.images << create(:image) }
+      related_products.each { |related_product| related_product.images << create(:image) }
       visit potepan_product_path(product.id)
     end
 
@@ -100,7 +99,7 @@ RSpec.feature '商品詳細ページ' do
 
     scenario '関連商品(related_product)が4つ表示されていること(feature spec)' do
       within('.productsContent') do
-        expect(page).to have_selector '.productBox', count:4
+        expect(page).to have_selector '.productBox', count: 4
       end
     end
   end
