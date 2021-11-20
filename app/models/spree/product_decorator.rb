@@ -1,5 +1,4 @@
 module Spree::ProductDecorator
-  MAX_PRODUCTS_COUNT = 4
   def related_products
     Spree::Product.joins(:taxons).
       includes(master: [:default_price, images: [attachment_attachment: :blob]]).
@@ -7,8 +6,7 @@ module Spree::ProductDecorator
       distinct.
       in_taxons(:taxons).
       where.not(id: id).
-      order(:taxon_id).
-      limit(MAX_PRODUCTS_COUNT)
+      order(:taxon_id)
   end
   Spree::Product.prepend self
 end
