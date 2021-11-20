@@ -25,5 +25,9 @@ RSpec.describe "Spree::Products(model spec)", type: :model do
     it "related_product_listsの中に、related_productsメソッドを用いて取得した関連商品を取得できていること" do
       expect(product.related_products).to eq related_product_lists
     end
+
+    it "表示される商品が重複しないこと（関連商品が5つ取得できても、表示される商品が4つしかないこと）" do
+      expect(product.related_products).to eq related_product_lists.uniq
+    end
   end
 end
