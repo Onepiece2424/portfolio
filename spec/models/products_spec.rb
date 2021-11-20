@@ -9,7 +9,6 @@ RSpec.describe "Spree::Products(model spec)", type: :model do
   let(:related_product3) { create(:product, taxons: [taxon]) }
   let(:related_product4) { create(:product, taxons: [taxon]) }
   let(:related_product_lists) { create_list(:product, 4, taxons: [taxon]) }
-  let(:related_5products) { create_list(:product, 5, taxons: [taxon]) }
 
   describe "related_productsメソッドのテスト" do
     it "related_productsメソッドを用いた関連商品に個々の商品を含んでいること" do
