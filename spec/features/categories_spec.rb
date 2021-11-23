@@ -11,11 +11,11 @@ RSpec.feature "Potepan::Categories", type: :feature do
     visit potepan_category_path(taxon.id)
   end
 
-  scenario 'page内のタイトルが取得できていること' do
+  scenario 'page内のタイトルが表示されること' do
     expect(page).to have_title "#{taxon.name} - BIGBAG Store"
   end
 
-  scenario 'page内にHomeリンクが表示されていること' do
+  scenario 'page内にHomeリンクが表示されること' do
     expect(page).to have_link 'Home'
   end
 
@@ -62,7 +62,7 @@ RSpec.feature "Potepan::Categories", type: :feature do
     expect(page).to have_current_path potepan_product_path(product.id)
   end
 
-  scenario 'カテゴリー一覧の商品画像が表示すること' do
+  scenario 'カテゴリー一覧の商品画像が表示されること' do
     product.images.each do |image|
       expect(page).to have_selector("img,[src$='#{image.filename}']")
     end
