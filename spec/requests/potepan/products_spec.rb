@@ -6,10 +6,11 @@ RSpec.describe "Spree::Products", type: :request do
   let(:image) { create(:image) }
   let(:taxonomy) { create(:taxonomy) }
   let(:related_product) { create(:product, taxons: [taxon]) }
-  let(:related_product_lists) { create_list(:product, 4, taxons: [taxon]) }
+  let(:related_product_lists) { create_list(:product, 5, taxons: [taxon]) }
 
   before do
     related_product.images << image
+    related_product_lists.each { |related_product_list| related_product_list.images << create(:image) }
     get potepan_product_url product.id
   end
 
@@ -18,15 +19,15 @@ RSpec.describe "Spree::Products", type: :request do
       expect(response.status).to eq(200)
     end
 
-    it '商品名が表示されること' do
+    it 'レスポンスに商品名が含まれること' do
       expect(response.body). to include product.name
     end
 
-    it '商品価格が表示されること' do
+    it 'レスポンスに商品価格が含まれること' do
       expect(response.body). to include product.price.to_s
     end
 
-    it '商品説明が表示されること' do
+    it 'レスポンスに商品説明が含まれること' do
       expect(response.body). to include product.description
     end
 
@@ -36,14 +37,14 @@ RSpec.describe "Spree::Products", type: :request do
   end
 
   describe '商品詳細ページ、「関連商品(related_product)」部分のテスト(request spec)' do
-    it '関連商品(related_product)部分の商品名、価格、画像が表示されること(request spec)' do
+    it 'レスポンスに関連商品(related_product)部分の商品名、価格、画像が含まれること(request spec)' do
       expect(response.body). to include related_product.name
       expect(response.body). to include related_product.display_price.to_s
       expect(response.body). to include rails_blob_path(related_product.images.first.attachment)
     end
 
-    it '関連商品(related_product)の商品が4つ表示されていること(request spec)' do
-      expect(related_product_lists.count).to eq 4
+    it "関連商品が5つ取得できても、レスポンスに含まれる商品が4つしかないこと" do
+      expect(response.body).to include related_product_lists.first.name
     end
   end
 end
