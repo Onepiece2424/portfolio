@@ -14,57 +14,57 @@ RSpec.feature '商品詳細ページ' do
   end
 
   feature '商品詳細（showページ）ページのテスト(feature spec)' do
-    scenario '画像表示テスト(have_selector)' do
+    scenario '商品画像が表示されること' do
       product.images.each do |image|
         expect(page).to have_selector("img,[src$='#{image.filename}']")
       end
     end
 
-    scenario '商品名テスト(div.page-title部分のproduct.nameのテスト)' do
+    scenario 'div.page-title部分の商品名が表示されること' do
       within(:css, 'div.page-title') do
         expect(page).to have_content product.name
       end
     end
 
-    scenario '商品名テスト(ol.breadcrumb部分のproduct.nameのテスト)' do
+    scenario 'ol.breadcrumb部分の商品名が表示されること' do
       within(:css, 'ol.breadcrumb') do
         expect(page).to have_content product.name
       end
     end
 
-    scenario '商品名テスト(div.media-body部分のproduct.nameのテスト)' do
+    scenario 'div.media-body部分の商品名が表示されること' do
       within(:css, 'div.media-body') do
         expect(page).to have_content product.name
       end
     end
 
-    scenario '商品価格のテスト' do
+    scenario '商品価格が表示されること' do
       expect(page).to have_content product.price
     end
 
-    scenario '商品説明のテスト' do
+    scenario '商品説明が表示されること' do
       expect(page).to have_content product.description
     end
 
-    scenario 'have_linkを用いた商品リンク(Home)のテスト' do
+    scenario 'have_linkを用いた商品リンク(Home)が表示されること' do
       expect(page).to have_link 'Home'
     end
 
-    scenario 'have_cssを用いた商品リンク(Home、show.html.erb記載)のテスト' do
+    scenario '商品リンク(Home、show.html.erb部分)が表示されること' do
       find("section.lightSection").click
       expect(page).to have_css '.breadcrumb'
     end
 
-    scenario 'have_cssを用いた商品リンク(Home、_header.html.erb記載)のテスト' do
+    scenario '商品リンク(Home、_header.html.erb部分)が表示されること' do
       find("div.collapse").click
       expect(page).to have_css '.active'
     end
 
-    scenario '商品リンク(BIGBAG)のテスト' do
+    scenario '商品リンク(BIGBAG)が表示されること' do
       expect(page).to have_css '.navbar-brand'
     end
 
-    scenario '「一覧ページへ戻る」リンクをクリック後、カテゴリー一覧ページへ移動することを確認するテスト' do
+    scenario '「一覧ページへ戻る」リンクをクリック後、カテゴリー一覧ページへ移動されること' do
       click_on '一覧ページへ戻る'
       expect(page).to have_current_path potepan_category_path(product.taxons.first.id)
     end
@@ -77,7 +77,7 @@ RSpec.feature '商品詳細ページ' do
       visit potepan_product_path(product.id)
     end
 
-    scenario '関連商品(related_product)部分の商品名、価格、画像の表示テスト(feature spec)' do
+    scenario '関連商品(related_product)部分の商品名、価格、画像が表示されること' do
       expect(page).to have_content related_product.name
       expect(page).to have_content related_product.display_price
       related_product.images.each do |image|
@@ -85,14 +85,14 @@ RSpec.feature '商品詳細ページ' do
       end
     end
 
-    scenario '関連商品(related_product)の商品名(related_product.name)をクリック後、商品詳細ページへ移動すること' do
+    scenario '関連商品(related_product)の商品名(related_product.name)をクリック後、商品詳細ページへ移動されること' do
       within('.productsContent') do
         click_on related_product.name
       end
       expect(page).to have_current_path potepan_product_path(related_product.id)
     end
 
-    scenario '関連商品(related_product)の商品価格(related_product.display_price)をクリック後、商品詳細ページへ移動すること' do
+    scenario '関連商品(related_product)の商品価格(related_product.display_price)をクリック後、商品詳細ページへ移動されること' do
       click_on related_product.display_price, match: :first
       expect(page).to have_current_path potepan_product_path(related_product.id)
     end
