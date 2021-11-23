@@ -16,25 +16,25 @@ RSpec.describe "Spree::Taxon,Spree::Taxonomy", type: :request do
       expect(response.status).to eq(200)
     end
 
-    it 'page内に「CATEGORIES」「BRAND」などの文字列が表示されること' do
+    it 'レスポンスに「CATEGORIES」「BRAND」などの文字列が含まれること' do
       expect(response.body). to include taxon.taxonomy.name
     end
 
-    it 'カテゴリー別商品一覧の商品名が表示されること' do
+    it 'レスポンスにカテゴリー別商品一覧の商品名が含まれること' do
       expect(response.body). to include product.name
     end
 
-    it 'カテゴリー別商品一覧の商品価格が表示されること' do
+    it 'レスポンスにカテゴリー別商品一覧の商品価格が含まれること' do
       expect(response.body). to include product.display_price.to_s
     end
 
-    it '左サイドバーの商品カテゴリーの一覧が表示されること' do
+    it 'レスポンスに左サイドバーの商品カテゴリーの一覧が含まれること' do
       taxonomy.taxons.leaves.each do |taxon|
         expect(response.body).to include taxon.name
       end
     end
 
-    it 'カテゴリー別商品一覧の商品画像が表示されること' do
+    it 'レスポンスにカテゴリー別商品一覧の商品画像が含まれること' do
       expect(response.body).to include rails_blob_path(product.images.first.attachment)
     end
 
