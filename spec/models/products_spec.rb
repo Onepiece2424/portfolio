@@ -11,11 +11,11 @@ RSpec.describe "Spree::Products(model spec)", type: :model do
       expect(product.related_products).to eq related_product_lists
     end
 
-    it "related_productsメソッドを用いて、商品詳細ページの商品以外を表示すること" do
+    it "商品詳細ページの商品以外を表示すること" do
       expect(product.related_products).not_to eq product
     end
 
-    it "表示される商品が重複しないこと（関連商品が5つ取得できても、表示される商品が4つしかないこと）" do
+    it "表示される商品が重複しないこと" do
       expect(product.related_products).to eq related_product_lists.uniq
     end
   end
