@@ -6,7 +6,7 @@ RSpec.describe "Spree::Products(model spec)", type: :model do
   let(:product) { create(:product, taxons: [taxon]) }
   let(:taxonomy) { create(:taxonomy) }
   let(:taxon) { create(:taxon, taxonomy: taxonomy) }
-  let(:related_product_lists) { create_list(:product, 4, taxons: [taxon]) }
+  let(:related_product_lists) { create_list(:product, 5, taxons: [taxon]) }
 
   describe "related_productsメソッド" do
     it do
@@ -18,7 +18,7 @@ RSpec.describe "Spree::Products(model spec)", type: :model do
     end
 
     it "表示される商品が重複しないこと" do
-      is_expected.to eq related_products.uniq
+      is_expected.to eq related_product_lists.uniq
     end
   end
 end
