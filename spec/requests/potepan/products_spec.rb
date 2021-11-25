@@ -14,7 +14,7 @@ RSpec.describe "Spree::Products", type: :request do
     get potepan_product_url product.id
   end
 
-  describe 'showページの表示' do
+  describe '商品詳細ページ' do
     it 'レスポンスが返ってくること' do
       expect(response.status).to eq(200)
     end
@@ -36,8 +36,8 @@ RSpec.describe "Spree::Products", type: :request do
     end
   end
 
-  describe '商品詳細ページ、「関連商品(related_product)」部分のテスト(request spec)' do
-    it 'レスポンスに関連商品(related_product)部分の商品名、価格、画像が含まれること(request spec)' do
+  describe '商品詳細ページ、関連商品部分' do
+    it 'レスポンスに関連商品部分の商品名、価格、画像が含まれること' do
       expect(response.body). to include related_product.name
       expect(response.body). to include related_product.display_price.to_s
       expect(response.body). to include rails_blob_path(related_product.images.first.attachment)
