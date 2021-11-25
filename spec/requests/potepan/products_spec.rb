@@ -45,6 +45,8 @@ RSpec.describe "Spree::Products", type: :request do
 
     it "関連商品が5つ取得できても、レスポンスに含まれる商品が4つしかないこと" do
       expect(response.body).to include product_lists.first.name
+      expect(response.body).to include product_lists.second.name
+      expect(response.body).to include product_lists.third.name
     end
   end
 end
