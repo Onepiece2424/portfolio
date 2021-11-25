@@ -1,6 +1,6 @@
 module Spree::ProductDecorator
   def related_products
-    Spree::Product.joins(:taxons).
+    Spree::Product.
       distinct.
       in_taxons(taxons).
       where.not(id: id)
