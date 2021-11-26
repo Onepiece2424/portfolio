@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Spree::Products", type: :model do
-  subject { product.related_products }
-
+  
   let(:product) { create(:product, taxons: [taxon]) }
   let(:taxonomy) { create(:taxonomy) }
   let(:taxon) { create(:taxon, taxonomy: taxonomy) }
@@ -10,15 +9,15 @@ RSpec.describe "Spree::Products", type: :model do
 
   describe "related_productsメソッド" do
     it "商品が表示されること" do
-      is_expected.to eq related_product_lists
+      expect(product.related_products).to eq related_product_lists
     end
 
     it "商品詳細ページの商品以外を表示すること" do
-      is_expected.not_to eq product
+      expect(product.related_products).not_to eq product
     end
 
     it "表示される商品が重複しないこと" do
-      is_expected.to eq related_product_lists.uniq
+      expect(product.related_products).to eq related_product_lists.uniq
     end
   end
 end
