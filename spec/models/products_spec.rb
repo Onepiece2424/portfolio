@@ -9,7 +9,7 @@ RSpec.describe "Spree::Products", type: :model do
   let(:related_product_lists) { create_list(:product, 5, taxons: [taxon]) }
 
   describe "related_productsメソッド" do
-    it do
+    it "商品が表示されること" do
       is_expected.to eq related_product_lists
     end
 
