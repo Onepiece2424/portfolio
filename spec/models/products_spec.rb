@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Spree::Products", type: :model do
-  
   let(:product) { create(:product, taxons: [taxon]) }
   let(:taxonomy) { create(:taxonomy) }
   let(:taxon) { create(:taxon, taxonomy: taxonomy) }
