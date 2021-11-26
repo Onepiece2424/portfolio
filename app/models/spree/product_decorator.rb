@@ -5,5 +5,6 @@ module Spree::ProductDecorator
       in_taxons(taxons).
       where.not(id: id)
   end
+
   Spree::Product.prepend self
 end
