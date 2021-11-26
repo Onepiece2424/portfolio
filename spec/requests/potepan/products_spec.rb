@@ -47,6 +47,7 @@ RSpec.describe "Spree::Products", type: :request do
       expect(response.body).to include product_lists.first.name
       expect(response.body).to include product_lists.second.name
       expect(response.body).to include product_lists.third.name
+      expect(response.body).not_to include product_lists.fifth.name
     end
   end
 end
