@@ -15,7 +15,7 @@ RSpec.feature '商品詳細部分と関連商品部分のテスト' do
 
   feature '商品詳細部分のテスト' do
     scenario '商品画像が表示されること' do
-      product.images.each do |image|
+      product.images.all do |image|
         expect(page).to have_selector("img,[src$='#{image.filename}']")
       end
     end
@@ -80,7 +80,8 @@ RSpec.feature '商品詳細部分と関連商品部分のテスト' do
     scenario '関連商品の商品名、価格、画像が表示されること' do
       expect(page).to have_content related_product.name
       expect(page).to have_content related_product.display_price
-      related_product.images.each do |image|
+      binding.pry
+      related_product.images.all do |image|
         expect(page).to have_selector("img,[src$='#{image.filename}']")
       end
     end
