@@ -5,11 +5,9 @@ RSpec.describe "Spree::Products", type: :request do
   let(:taxon) { create(:taxon, taxonomy: taxonomy) }
   let(:image) { create(:image) }
   let(:taxonomy) { create(:taxonomy) }
-  let(:related_product) { create(:product, taxons: [taxon]) }
   let(:product_lists) { create_list(:product, 5, taxons: [taxon]) }
 
   before do
-    related_product.images << image
     product_lists.each { |product_list| product_list.images << create(:image) }
     get potepan_product_url product.id
   end
@@ -37,16 +35,11 @@ RSpec.describe "Spree::Products", type: :request do
   end
 
   describe '商品詳細ページ、関連商品部分' do
-    it 'レスポンスに関連商品部分の商品名、価格、画像が含まれること' do
-      expect(response.body). to include related_product.name
-      expect(response.body). to include related_product.display_price.to_s
-      expect(response.body). to include rails_blob_path(related_product.images.first.attachment)
-    end
-
     it "関連商品が5つ取得できても、レスポンスに含まれる商品が4つしかないこと" do
       expect(response.body).to include product_lists.first.name
       expect(response.body).to include product_lists.second.name
       expect(response.body).to include product_lists.third.name
+      expect(response.body).to include product_lists.fourth.name
       expect(response.body).not_to include product_lists.fifth.name
     end
   end
